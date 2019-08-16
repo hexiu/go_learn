@@ -3,15 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	var list = []int{10,10,9,9,9,9,9, 9, 2, 13, 14, 15, 6, 7, 8, 9}
+	var list = []int{10, 10, 9, 9, 9, 9, 9, 9, 2, 13, 14, 15, 6, 7, 8, 9}
 	qsort(list, 0, len(list)-1)
 	fmt.Println(list)
 	// queryMid(list, 0, len(list)-1)
 }
 
 func qsort(list []int, i, j int) {
-	mid := qsort1(list, i, j)
-	fmt.Println("mid1:", mid)
+	// mid := qsort1(list, i, j)
+	if j-i < 1 {
+		return
+	}
+	mid := qsort2(list, i, j)
+	fmt.Println("mid1:", mid, list)
 	if mid == 0 {
 		fmt.Println(list)
 		return
@@ -47,16 +51,26 @@ func qsort1(list []int, i, j int) (mid int) {
 	return i
 }
 
+// L G U
+// L  | G U
+//
+
 func qsort2(list []int, i, j int) (mid int) {
-	// l := i
+	l := i
 	// r := j
-	// tmp := list[l]
-	// for k := 0; k < j; k++ {
-	// 	if tmp > list[k] {
-			
-	// 	}
-	// }
-	return
+	tmp := list[l]
+
+	for k := i + 1; k <= j; k++ {
+		if tmp > list[k] {
+			l++
+			list[l], list[k] = list[k], list[l]
+		}
+
+		fmt.Println(l, k, list)
+	}
+	list[i], list[l] = list[l], list[i]
+	fmt.Println(list[i], list[l], j, i, l)
+	return l
 }
 
 func queryMid(list []int, i, j int) {

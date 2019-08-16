@@ -14,6 +14,35 @@ func main() {
 	fmt.Println(list)
 
 	fmt.Println(123>>1, 123<<2)
+
+
+	nums := make([]int,0)
+	for i:=1;i<=100;i++ {
+		nums = append(nums,i)
+	}
+	fmt.Println(nums)
+	num:=0
+	for i:=0;num!=5050;{
+		if (i+1)%11 == 0{
+			if num[i] != 0 {
+
+			}else{
+				
+			}
+		}
+		if nums[i]== 0{
+			num++
+		}
+		if i==99 {
+			i=0
+		}else{
+			i++
+		}
+	}
+	fmt.Println(num)
+	fmt.Println(nums)
+
+
 	return
 }
 

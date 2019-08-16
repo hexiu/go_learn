@@ -53,4 +53,5 @@ func main() {
 	}
 	wg.Wait()
 	fmt.Println(time.Now().Sub(starttime).Seconds())
+	return
 }

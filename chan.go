@@ -48,6 +48,7 @@ func main() {
 	//time.Sleep(1*time.Second)
 	fmt.Println("done")
 	sumall()
+	return 
 }
 
 var su chan int64 = make(chan int64, 1)
